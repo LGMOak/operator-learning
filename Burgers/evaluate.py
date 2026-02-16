@@ -2,13 +2,13 @@ import torch
 import numpy as np
 import matplotlib.pyplot as plt
 import pickle
-from deeponet import DeepONet
+from PI_DeepONet.pi_deeponet import PIDeepONet
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 def evaluate():
     print("Loading test data")
-    with open('./data/burgers_data_test.pkl', 'rb') as f:
+    with open('../data/burgers_data_test.pkl', 'rb') as f:
         data = pickle.load(f)
 
     u0_test = data['initial_conditions']
@@ -18,8 +18,9 @@ def evaluate():
 
     nx_res = u0_test.shape[1]
 
-    model = DeepONet(branch_input_size=nx_res, hidden_dim=128, p=128)
-    model.load_state_dict(torch.load('./models/deeponet_burgers.pth', map_location=device))
+    # model = DeepONet(branch_input_size=nx_res, hidden_dim=128, p=128)
+    model = PIDeepONet(branch_input_size=nx_res, hidden_dim=128, p=128)
+    model.load_state_dict(torch.load('./models/pi_deeponet_burgers.pth', map_location=device))
     model.to(device)
     model.eval()
 
@@ -60,8 +61,8 @@ def evaluate():
         plt.colorbar(im3, ax=axes[i, 2])
 
     plt.tight_layout()
-    plt.savefig('./figures/deeponet_evaluation.png')
-    print("Evaluation saved to deeponet_evaluation.png")
+    plt.savefig('./figures/pi_deeponet_evaluation.png')
+    print("Evaluation saved to pi_deeponet_evaluation.png")
 
 if __name__ == "__main__":
     evaluate()
