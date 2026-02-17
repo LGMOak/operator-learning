@@ -56,7 +56,7 @@ $$\nabla^2 \psi + \omega = 0, \quad (\mathbf{u} \cdot \nabla)\omega = \frac{1}{R
 **Training Strategy**:
 - Burn-in: 2000 epochs data-only, then activate physics loss
 - Corner masking to avoid singularities at $(0,1)$ and $(1,1)$
-- Loss: $\mathcal{L} = 20\mathcal{L}_{\text{data}} + \mathcal{L}_{\text{Poisson}} + \mathcal{L}_{\text{vorticity}}$
+- Loss: $` \mathcal{L} = 20\mathcal{L}_{\text{data}} + \mathcal{L}_{\text{Poisson}} + \mathcal{L}_{\text{vorticity}} `$
 
 ![NS Evaluation Re=400](Navier_Stokes/figures/evaluation/re_400.png)
 
