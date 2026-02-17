@@ -23,6 +23,7 @@ Benchmark problem: $u_t + u u_x = \nu u_{xx}$
 Training: 1000 ICs (Fourier modes, Gaussians, shocks), 256×201 grid
 
 **PI-DeepONet** adds physics-informed loss:
+
 $$\mathcal{L} = \lambda_{IC} \mathcal{L}_{IC} + \lambda_{PDE} \mathcal{L}_{PDE} + \lambda_{data} \mathcal{L}_{data}$$
 
 where PDE residual $\mathcal{L}_{PDE} = \| u_t + u u_x - \nu u_{xx} \|^2$ is computed via automatic differentiation.
@@ -152,10 +153,10 @@ cd ../../Navier_Stokes && python inverse.py
 
 ## Key Takeaways
 
-1. **Operator learning = amortised inference**: Train once, solve instantly for new ICs/parameters
+1. **Operator learning amortised inference**: Train once, solve instantly for new ICs/parameters
 2. **Physics-informed training is essential**: Pure data fails to generalise outside training distribution
 3. **L-BFGS is critical**: Reduces error by 2-3 orders of magnitude for scientific precision
-4. **Inverse problems "for free"**: Learned operators enable parameter discovery via simple optimisation
+4. **Inverse problems**: Learned operators enable parameter discovery via simple optimisation
 
 ---
 
