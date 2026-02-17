@@ -72,19 +72,27 @@ Streamlines correctly capture primary vortex and recirculation zones across Re=1
 
 | Target Re | Discovered | Error |
 |-----------|------------|-------|
-| 150       | 149.82     | 0.12% |
-| 300       | 299.45     | 0.18% |
-| 500       | 501.23     | 0.25% |
-| 750       | 748.67     | 0.18% |
-| 950       | 952.14     | 0.23% |
+| 150       | 146.51     | 2.03% |
+| 300       | 307.01     | 2.34% |
+| 500       | 515.20     | 3.04% |
+| 750       | 747.24     | 0.31% |
+| 950       | 943.80     | 0.61% |
 
 ![Inverse Convergence](Navier_Stokes/figures/inverse_convergence.png)
 
 **Results - Sparse Sensors (50 points, multi-start)**:
 
+| Target Re | Init=200 | Init=500 | Init=800 |
+|-----------|----------|----------|----------|
+| 150       | 154.47   | 154.47   | 154.48   |
+| 300       | 314.67   | 314.67   | 314.67   |
+| 500       | 503.08   | 500.00   | 503.10   |
+| 750       | 714.03   | 713.99   | 714.03   |
+| 950       | 920.97   | 921.04   | 921.03   |
+
 ![Sparse Convergence](Navier_Stokes/figures/inverse_sparse_convergence.png)
 
-**Key Finding**: Model discovers Re values **never seen during training** (e.g., Re=750) with <1% error using only 50 sensors (0.3% of domain). Initialisation-insensitive with typical convergence in 10-20 function evaluations.
+**Key Finding**: Model discovers Re values never seen during training with 1-5% error using 1000 sensors, and 1-5% error with only 50 sensors (0.3% of domain). Different initialisations converge to nearly identical values (initialisation-insensitive), typically in 10-20 function evaluations.
 
 ---
 
