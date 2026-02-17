@@ -26,7 +26,7 @@ Training: 1000 ICs (Fourier modes, Gaussians, shocks), 256×201 grid
 
 $$\mathcal{L} = \lambda_{IC} \mathcal{L}_{IC} + \lambda_{PDE} \mathcal{L}_{PDE} + \lambda_{data} \mathcal{L}_{data}$$
 
-where PDE residual $\mathcal{L}_{PDE} = \| u_t + u u_x - \nu u_{xx} \|^2$ is computed via automatic differentiation.
+where PDE residual $\mathcal{L}_{PDE} = || u_t + u u_x - \nu u_{xx} ||^2$ is computed via automatic differentiation.
 
 ![PI-DeepONet Evaluation](Burgers/PI_DeepONet/figures/pi_deeponet_evaluation.png)
 
