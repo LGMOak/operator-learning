@@ -25,8 +25,7 @@ Training: 1000 ICs (Fourier modes, Gaussians, shocks), 256×201 grid
 **PI-DeepONet** adds physics-informed loss:
 
 $$\mathcal{L} = \lambda_{IC} \mathcal{L}_{IC} + \lambda_{PDE} \mathcal{L}_{PDE} + \lambda_{data} \mathcal{L}_{data}$$
-
-where PDE residual \(\mathcal{L}_{PDE} = \| u_t + u u_x - \nu u_{xx} \|^2\) is computed via automatic differentiation.
+where PDE residual $\mathcal{L}_{PDE} = \| u_t + u u_x - \nu u_{xx} \|^2$ is computed via automatic differentiation.
 
 ![PI-DeepONet Evaluation](Burgers/PI_DeepONet/figures/pi_deeponet_evaluation.png)
 
@@ -56,7 +55,7 @@ $$\nabla^2 \psi + \omega = 0, \quad (\mathbf{u} \cdot \nabla)\omega = \frac{1}{R
 **Training Strategy**:
 - Burn-in: 2000 epochs data-only, then activate physics loss
 - Corner masking to avoid singularities at $(0,1)$ and $(1,1)$
-- Loss: \(\mathcal{L} = 20(\mathcal{L}_{\psi} + \mathcal{L}_{\omega}) + \mathcal{L}_{\text{Poisson}} + \mathcal{L}_{\text{vorticity}}\)
+- Loss: $\mathcal{L} = 20\mathcal{L}_{\text{data}} + \mathcal{L}_{\text{Poisson}} + \mathcal{L}_{\text{vorticity}}$
 
 ![NS Evaluation Re=400](Navier_Stokes/figures/evaluation/re_400.png)
 
