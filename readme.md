@@ -27,7 +27,7 @@ $$\mathcal{L} = \lambda_{IC} \mathcal{L}_{IC} + \lambda_{PDE} \mathcal{L}_{PDE} 
 
 where PDE residual $\mathcal{L}_{PDE} = \| u_t + u u_x - \nu u_{xx} \|^2$ is computed via automatic differentiation.
 
-![PI-DeepONet Evaluation](Burgers/figures/pi_deeponet_evaluation.png)
+![PI-DeepONet Evaluation](Burgers/PI_DeepONet/figures/pi_deeponet_evaluation.png)
 
 **Key Techniques:**
 1. **Modified MLP** (Wang et al.): Gated architecture `h = (1-z)*u + z*v` improves gradient flow
